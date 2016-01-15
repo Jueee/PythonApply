@@ -1,0 +1,15 @@
+https://pypi.python.org/pypi/cx_Oracle
+
+在windows上安装python mysql模块后，导入模块时报 python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序
+这个是因为你安装了64位的python，然后安装32位的mysql模块，或者你安装了32位的python，然后安装64位的myql模块
+怎么查看自己的python是多少位？
+
+
+Microsoft Windows [版本 6.1.7601]
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+
+C:\Users\weiyq10580>python
+Python 3.3.5 (v3.3.5:62cf4e77f785, Mar  9 2014, 10:37:12) [MSC v.1600 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
