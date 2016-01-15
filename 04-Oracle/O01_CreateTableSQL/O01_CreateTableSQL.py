@@ -1,7 +1,7 @@
 import cx_Oracle
 import os.path
 
-tableName = 'testwyq'
+tableName = 'tsys_organization'
 
 TABLE_NAME = str.upper(tableName)
 
@@ -11,7 +11,7 @@ def get_columns(sql):
     coon = None
     cursor = None
     try:
-        coon = cx_Oracle.connect('hsncm', 'ncm', '192.168.50.74:1521/orcl')   # 建立连接，3 个参数分开写
+        coon = cx_Oracle.connect('hstdc', 'tdc', '192.168.50.74:1521/orcl')   # 建立连接，3 个参数分开写
         cursor = coon.cursor()  #建立一个cursor
         cursor.execute(sql)
         row=cursor.fetchall()
