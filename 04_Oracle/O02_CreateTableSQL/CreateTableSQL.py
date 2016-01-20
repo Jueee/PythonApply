@@ -95,6 +95,8 @@ def table_content(cols):
             s += "   %-20s%s(%s)" % (cs[0],cs[1],cs[2])
         elif cs[1]=='NUMBER' and cs[3]!=0:
             s += "   %-20s%s(%s,%s)" % (cs[0],cs[1],cs[2],cs[3])
+        elif cs[1]=='DATE':
+            s += "   %-20s%s" % (cs[0],cs[1])
         if cs[4]=='N':
             s += " not null"
         if x != len(cols)-1:
