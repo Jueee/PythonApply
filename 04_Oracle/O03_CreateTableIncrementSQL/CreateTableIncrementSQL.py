@@ -1,8 +1,14 @@
+'''
+##根据表名，生成表字段的增量脚本  
+
+1. 支持多张表操作；
+2. 先判断表中是否有某个字段，若存在则跳过，若不存在则新增。
+'''
 import cx_Oracle
 import os.path
 import time
 
-TABLE_NAMES = ['trpt_tprojfullfactor_tcmp','trpt_tprojfullfactor_hsta','trpt_tprojfullfactor_hsam','trpt_tprojfullfactor_hsfa']
+TABLE_NAMES = ['tsys_organization','tsys_user']
 
 # 根据SQL获取查询结果List
 def get_columns(sql):
@@ -74,9 +80,12 @@ def col_comments(tableName,cols):
     for x in range(len(cols)):
         cs = cols[x]
         if cs[6] is not None:
+            nullable = ''
+            if cs[4]=='N':
+                nullable = 'not null'
             s += "  SELECT COUNT(*)  into v_cnt FROM USER_TAB_COLUMNS WHERE TABLE_NAME = '%s' AND COLUMN_NAME = '%s';\n" % (tableName,cs[0]) 
             s += "   if v_cnt = 0  then\n"
-            s += "     execute immediate 'alter table %s add %s %s';\n" % (tableName,cs[0],cs[9]) 
+            s += "     execute immediate 'alter table %s add %s %s %s';\n" % (tableName,cs[0],cs[9],nullable) 
             s += "     execute immediate 'comment on column %s.%s is ''%s''';\n" % (tableName,cs[0],cs[6]) 
             s += "     dbms_output.put_line('添加%s(%s)成功！');\n" % (cs[0],cs[6])
             s += "   end if;\n "
