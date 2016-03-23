@@ -13,7 +13,7 @@ def get_columns(sql):
     coon = None
     cursor = None
     try:
-        coon = cx_Oracle.connect('tcmptest', 'tcmptest', '192.168.58.23:1521/orcl')   # 建立连接，3 个参数分开写
+        coon = cx_Oracle.connect('tcmp', 'tcmp', '192.168.58.23:1521/orcl')   # 建立连接，3 个参数分开写
         cursor = coon.cursor()  #建立一个cursor
         cursor.execute(sql)
         row=cursor.fetchall()
