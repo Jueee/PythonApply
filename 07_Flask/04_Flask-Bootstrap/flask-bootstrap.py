@@ -1,6 +1,5 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-
 '''
 集成Bootstrap
 要使用 Bootstrap ，最直观的办法是引入对应的css和js文件.
