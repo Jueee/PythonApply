@@ -34,7 +34,7 @@ def resolveEML(emlName):
  
 # 无附件
 if __name__ == '__main__':
-    resolveEML("../testText.eml")
+    resolveEML("E:/test.eml")
 
 # 有附件
 if __name__ != '__main__':
