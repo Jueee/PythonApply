@@ -6,8 +6,18 @@ import email
 def resolveEML(emlName):
     fp = open(emlName, "r")
     msg = email.message_from_file(fp)
-    
-    
+
+    subject = msg.get("subject") # 取信件头里的subject,　也就是主题
+    h = email.Header.Header(subject)
+    dh = email.Header.decode_header(h)
+    subject = dh[0][0]
+    print("subject:", subject)
+    print("from: ", email.utils.parseaddr(msg.get("from"))[1]) # 取from
+    print("to: ", email.utils.parseaddr(msg.get("to"))[1]) # 取to
+    print("from: ", email.utils.parseaddr(msg.get("from"))[0]) # 取from
+    print("to: ", email.utils.parseaddr(msg.get("to"))[0]) # 取to
+    print(email.utils.parseaddr(msg.get("from"))[1])
+    print(email.utils.parseaddr(msg.get("from"))[0])
     # 循环信件中的每一个mime的数据块
     for par in msg.walk():
         if not par.is_multipart(): # 这里要判断是否是multipart，是的话，里面的数据是无用的，至于为什么可以了解mime相关知识。
@@ -34,7 +44,7 @@ def resolveEML(emlName):
  
 # 无附件
 if __name__ == '__main__':
-    resolveEML("E:/test.eml")
+    resolveEML("E:/1tbiTRiA81c674XDEwAAsx.eml")
 
 # 有附件
 if __name__ != '__main__':
