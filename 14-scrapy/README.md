@@ -10,7 +10,7 @@
 ### scrapy创建网络爬虫 ###
 > scrapy startproject myfirstpro  
 
-#####settings.py——爬虫的配置文件#####
+####settings.py——爬虫的配置文件####
 <table>
 <tr>
     <th>USER_AGENT</th>
@@ -34,8 +34,8 @@
 </tr>
 </table>
 执行网络爬虫
-> scrapy crawl shareditor
-### scrapy调试页面解析 ###
+> scrapy crawl shareditor  
+### scrapy调试页面解析 ###  
 > scrapy shell http://www.shareditor.com/  
 
 进入调试终端，可以直接使用request、response等变量来做各种操作尝试
