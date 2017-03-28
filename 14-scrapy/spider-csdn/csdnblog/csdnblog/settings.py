@@ -15,7 +15,7 @@ SPIDER_MODULES = ['csdnblog.spiders']
 NEWSPIDER_MODULE = 'csdnblog.spiders'
 
 ITEM_PIPELINES = {
-    'csdnblog.pipelines.CsdnblogPipeline': 800,
+    'csdnblog.pipelines.CsdnblogPipeline': 1500,
 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

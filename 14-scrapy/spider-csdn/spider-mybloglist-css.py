@@ -19,7 +19,6 @@ class CSDNBlogList(scrapy.Spider):
     def parse(self,response):
         for bloglist in response.css('div.list_item'):
             yield{
-            #    'title':bloglist.xpath('//h1/span/a/text()').extract_first(),
                 'title':bloglist.css('span.link_title a::text').extract_first(),
                 'blogtime':bloglist.css('span.link_postdate::text').extract_first(),
                 'view':bloglist.css('span.link_view::text').extract_first(),
