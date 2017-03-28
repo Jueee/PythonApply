@@ -1,5 +1,6 @@
 *.pyc
 log
+.json
 
 # Windows image file caches
 Thumbs.db
