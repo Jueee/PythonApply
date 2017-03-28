@@ -1,2 +1,2 @@
-# 06-PythonApply
+# PythonApply
 Python实用脚本汇总
