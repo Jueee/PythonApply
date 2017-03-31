@@ -24,6 +24,7 @@ class DmozSpider(scrapy.Spider):
             # 产生(yield)一个请求， 该请求使用 parse_dir_contents() 方法作为回调函数, 用于最终产生我们想要的数据.。
             yield scrapy.Request(url,callback=self.parse_dir_contents)
             
+            
     # 回调函数负责提取一些item,查找能跟进的页面的链接, 并且使用相同的回调函数yield一个 Request:
     def parse_dir_contents(self,response):
         for sel in response.xpath("//div[@id='site-list-content']/div[@class='site-item ']"):
