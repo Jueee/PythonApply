@@ -1,24 +1,4 @@
-爬取 quotes 数据。  
-[http://quotes.toscrape.com/tag/humor/](http://quotes.toscrape.com/tag/humor/ "http://quotes.toscrape.com/tag/humor/")
-
-执行
-> scrapy runspider spider-quotes.py -o quotes.json    
-
-测试：
-
-    scrapy shell http://quotes.toscrape.com/tag/humor/
-
-    >>> response.css('div.quote')[0]
-    <Selector xpath=u"descendant-or-self::div[@class and contains(concat(' ', normalize-space(@class), ' '), ' quote ')]" data=u'<div class="quote" itemscope itemtype="h'>
-    >>> response.css('div.quote')[0].css('span.text::text').extract_first()
-    u'\u201cThe person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.\u201d'
-    >>> response.css('div.quote')[0].xpath('span/small/text()').extract_first()
-    u'Jane Austen'
-    >>> response.css('li.next a::attr("href")').extract_first()
-    u'/tag/humor/page/2/'
-
-
-## 工程 quotesspider ##
+# 工程 quotesspider #
 参考样例：[https://doc.scrapy.org/en/latest/intro/tutorial.html](https://doc.scrapy.org/en/latest/intro/tutorial.html)  
 
 新增工程：
@@ -39,7 +19,7 @@
 根据翻页的“下一页”标签，逐页爬取保存作者信息数据  
 > scrapy crawl author -o quotes-author.json
 
-根据标签  
+## 根据标签   
 可以通过-a 在运行它们时使用该选项为 Scrapy 提供命令行参数。
 > scrapy crawl quotes-tag -o quotes-tag-None.json
 
