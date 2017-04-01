@@ -1,4 +1,4 @@
-# 爬取 quotes 数据 #  
+# 爬取 quotes 数据  
 [http://quotes.toscrape.com/tag/humor/](http://quotes.toscrape.com/tag/humor/ "http://quotes.toscrape.com/tag/humor/")
 
 执行
@@ -18,7 +18,7 @@
     u'/tag/humor/page/2/'
 
 
-## 工程 quotesspider ##
+## 工程 quotesspider
 参考样例：[https://doc.scrapy.org/en/latest/intro/tutorial.html](https://doc.scrapy.org/en/latest/intro/tutorial.html)  
 
 新增工程：
