@@ -8,10 +8,10 @@ import json
 import codecs
 
 class LuowangPipeline(object):
-    def __init__(self):
-        self.file = codecs.open("musiclist.json",'w',encoding='utf-8')
 
     def process_item(self, item, spider):
+        filename = spider.name+".json";
+        self.file = codecs.open(filename,'a',encoding='utf-8')
         line = json.dumps(dict(item)) + "\n"
         self.file.write(line.decode("unicode_escape"))
         return item
