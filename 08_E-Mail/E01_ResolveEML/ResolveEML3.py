@@ -6,10 +6,9 @@ import email
 def resolveEML(emlName):
     fp = open(emlName, "r")
     msg = email.message_from_file(fp)
-
     subject = msg.get("subject") # 取信件头里的subject,　也就是主题
-    h = email.Header.Header(subject)
-    dh = email.Header.decode_header(h)
+    h = email.header.Header(subject)
+    dh = email.header.decode_header(h)
     subject = dh[0][0]
     print("subject:", subject)
     print("from: ", email.utils.parseaddr(msg.get("from"))[1]) # 取from
@@ -44,7 +43,7 @@ def resolveEML(emlName):
  
 # 无附件
 if __name__ == '__main__':
-    resolveEML("E:/1tbiQx-z31c69EY7jQAAsZ.eml")
+    resolveEML("E:/干扰发票.eml")
 
 # 有附件
 if __name__ != '__main__':
