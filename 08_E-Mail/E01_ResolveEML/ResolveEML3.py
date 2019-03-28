@@ -36,14 +36,19 @@ def resolveEML(emlName):
             else:
                 #不是附件，是文本内容
                 eml_text = par.get_payload(decode=True)
-                eml_decode = eml_text.decode().encode('gbk','ignore').decode('gbk')
-                print(eml_decode) # 解码出文本内容，直接输出来就可以了。
+                try:
+                    eml_decode = eml_text.decode().encode('gbk','ignore').decode('gbk')
+                    print(eml_decode) # 解码出文本内容，直接输出来就可以了。
+                except Exception as e:
+                    eml_decode = eml_text.decode()
+                    print(eml_decode) # 解码出文本内容，直接输出来就可以了。
+                
                 
             print('+'*60) # 用来区别各个部分的输出  
  
 # 无附件
 if __name__ == '__main__':
-    resolveEML("E:/干扰发票.eml")
+    resolveEML("C:/Users/hzweiyongqiang/Desktop/1.eml")
 
 # 有附件
 if __name__ != '__main__':
